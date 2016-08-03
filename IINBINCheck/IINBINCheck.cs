@@ -39,7 +39,10 @@ namespace IINBINCheck
         {
             try
             {
-                if(iinArray[4] > '3')
+                #region Bad lazy code. This code must be refactored
+                // TODO refactored lazy code
+
+                if (iinArray[4] > '3')
                 {
                     string regDate = string.Format("{2}{3}-{0}{1}-01", iinArray[0], (iinArray[1] == '0') ? 1 : iinArray[1], iinArray[2], iinArray[3]);
 
@@ -67,6 +70,7 @@ namespace IINBINCheck
                         DocumentType = DocumentType.IIN
                     };
                 }
+                #endregion
             }
             catch(Exception ex)
             {
