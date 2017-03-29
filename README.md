@@ -1,11 +1,15 @@
 This solution may checking our individual tax number, using official government algorithm. 
 If number was checked true. We will be getting true value.
-
 <h1>How to test</h1> 
-Create console application. Add reference from [NuGet library](https://www.nuget.org/packages/IINBINCheck) and paste this code into Main method.
+<ul>
+  <li>Create console application;</li>
+  <li>Add reference from <a href="https://www.nuget.org/packages/IINBINCheck">IINBINCheck</a>;</li>
+  <li>Paste this code into Main method;</li>
+</ul>
+
 ```csharp
   Console.WriteLine("Enter IIN/BIN:");
-  string iin =Console.ReadLine();
+  string iin = Console.ReadLine();
 
   ContextIinCheck contextIinChek = new ContextIinCheck(iin, new DirectChek());
   contextIinChek.Check();
