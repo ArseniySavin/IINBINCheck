@@ -40,8 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataAbstraction.cs" />
+    <Compile Include="IINBINData.cs" />
     <Compile Include="IINBINCheck.cs" />
+    <Compile Include="IINBINCheckExeption.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
