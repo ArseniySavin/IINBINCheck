@@ -70,7 +70,7 @@ namespace IINBINCheck
       }
       catch (Exception ex)
       {
-        throw ex;
+        throw new IINBINCheckExeption(ex.Message);
       }
       return _legalData;
     }
@@ -100,7 +100,7 @@ namespace IINBINCheck
       }
       catch (Exception ex)
       {
-        throw ex;
+        throw new IINBINCheckExeption(ex.Message);
       }
 
       return _individualData;
