@@ -134,7 +134,7 @@ namespace IINBINCheck
         get
         {
           if (_iinbinArray == null)
-            throw new ArgumentNullException("Object array is NULL");
+            throw new ArgumentNullException("BIN array is NULL");
 
           if (_iinbinArray.Length == 12)
             return new Legale().GetLegalData(_iinbinArray);
@@ -151,7 +151,7 @@ namespace IINBINCheck
         get
         {
           if(_iinbinArray == null)
-            throw new ArgumentNullException("Object array is NULL");
+            throw new ArgumentNullException("IIN array is NULL");
 
           if (_iinbinArray.Length == 12)
             return new Individual().GetIndividualData(_iinbinArray);
