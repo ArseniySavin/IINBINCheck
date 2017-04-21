@@ -11,7 +11,7 @@ If number was checked true. We will be getting true value.
   Console.WriteLine("Enter IIN/BIN:");
   string iin = Console.ReadLine();
 
-  ContextIinCheck contextIinChek = new ContextIinCheck(iin, new DirectChek());
+  IinBinCheckContext contextIinChek = new IinBinCheckContext(iin, new DirectChek());
   contextIinChek.Check();
 
   Console.WriteLine("Direction check: " + contextIinChek.IsCheked.ToString());
@@ -27,12 +27,10 @@ If number was checked true. We will be getting true value.
 
   Console.WriteLine("Result check: " + contextIinChek.IsCheked.ToString());
   
-  // Data of parsing result  
-  Data data = contextIinChek.IINBINData;
+  // Data of parsing result IIN
+  IINBINData iinData = contextIinChek.IINData;
+  // or if you want get data the BIN
+  IINBINData binData = contextIinChek.BINData
   
-  Console.WriteLine(string.Format("{0} | {1} | {2} | {3} | {4} | {5} | {6} | {7}", 
-      data.BirtDate, data.DocumentType, data.Gender, data.Rank, 
-      data.RegistrationDate, data.SequenceNumber, data.SpecialCompanyType, data.Type));
-    
   Console.ReadKey();
 ```
