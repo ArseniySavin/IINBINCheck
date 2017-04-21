@@ -15,6 +15,7 @@ namespace IINBINCheckTest
       iinBinCheck.SetInnBin = "830802300054";
 
       Assert.IsNotNull(iinBinCheck.IINData);
+
     }
   }
 }
