@@ -56,12 +56,17 @@ namespace IINBINCheck
     }
   }
 
-  public class ContextIinBinCheck
+  public class IinBinCheckContext
   {
     char[] _iinbinArray;
     bool _isCheked;
 
-    public ContextIinBinCheck(string value, ChekAlgoritm chekAlgoritm)
+    public IinBinCheckContext()
+    {
+
+    }
+
+    public IinBinCheckContext(string value, ChekAlgoritm chekAlgoritm)
     {
       if(chekAlgoritm != null && string.IsNullOrEmpty(value))
         throw new ArgumentNullException("IIN/BIN and chekAlgoritm is NULL or empty");
@@ -70,7 +75,7 @@ namespace IINBINCheck
       ContextChekAlgoritm = chekAlgoritm;
     }
 
-    public ContextIinBinCheck(string value, ChekAlgoritm chekAlgoritm, bool check)
+    public IinBinCheckContext(string value, ChekAlgoritm chekAlgoritm, bool check)
     {
       if(chekAlgoritm != null && string.IsNullOrEmpty(value))
         throw new ArgumentNullException("IIN/BIN and chekAlgoritm is NULL or empty");
@@ -81,6 +86,17 @@ namespace IINBINCheck
       if(check)
         Check();
 
+    }
+
+    /// <summary>
+    /// Set value for convert to the array
+    /// </summary>
+    public string SetInnBin
+    {
+      set
+      {
+        _iinbinArray = value.ToArray<char>();
+      }
     }
 
     /// <summary>
