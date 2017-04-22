@@ -38,7 +38,7 @@ namespace IINBINCheck
     internal abstract bool Checked(char[] iinArray);
   }
 
-  internal class DirectChek : ChekAlgoritm
+  public class DirectChek : ChekAlgoritm
   {
     protected int[] directChain = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
     internal override bool Checked(char[] iinArray)
@@ -47,7 +47,7 @@ namespace IINBINCheck
     }
   }
 
-  internal class IndirectChek : ChekAlgoritm
+  public class IndirectChek : ChekAlgoritm
   {
     protected int[] inderectChain = new int[] { 3, 4, 5, 6, 7, 8, 9, 10, 11, 1, 2 };
     internal override bool Checked(char[] iinArray)
@@ -63,7 +63,7 @@ namespace IINBINCheck
 
     public IinBinCheckContext()
     {
-
+      ChekAlgoritmic = new DirectChek();
     }
 
     public IinBinCheckContext(string value, ChekAlgoritm chekAlgoritm)
@@ -72,7 +72,7 @@ namespace IINBINCheck
         throw new ArgumentNullException("IIN/BIN and chekAlgoritm is NULL or empty");
 
       _iinbinArray = value.ToArray<char>();
-      ContextChekAlgoritm = chekAlgoritm;
+      ChekAlgoritmic = chekAlgoritm;
     }
 
     public IinBinCheckContext(string value, ChekAlgoritm chekAlgoritm, bool check)
@@ -81,7 +81,7 @@ namespace IINBINCheck
         throw new ArgumentNullException("IIN/BIN and chekAlgoritm is NULL or empty");
 
       _iinbinArray = value.ToArray<char>();
-      ContextChekAlgoritm = chekAlgoritm;
+      ChekAlgoritmic = chekAlgoritm;
 
       if(check)
         Check();
@@ -119,7 +119,7 @@ namespace IINBINCheck
     /// <summary>
     /// Instance accessor algoritm
     /// </summary>
-    public ChekAlgoritm ContextChekAlgoritm
+    public ChekAlgoritm ChekAlgoritmic
     {
       private get;
       set;
@@ -132,7 +132,7 @@ namespace IINBINCheck
     {
       get
       {
-        return ContextChekAlgoritm.CurrentRank;
+        return ChekAlgoritmic.CurrentRank;
       }
     }
 
@@ -154,7 +154,7 @@ namespace IINBINCheck
     {
 
       if(_iinbinArray.Length == 12)
-        _isCheked = ContextChekAlgoritm.Checked(_iinbinArray);
+        _isCheked = ChekAlgoritmic.Checked(_iinbinArray);
       else
         _isCheked = false;
     }

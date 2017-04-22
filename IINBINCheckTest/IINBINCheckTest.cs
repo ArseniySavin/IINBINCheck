@@ -8,14 +8,52 @@ namespace IINBINCheckTest
   public class IINBINCheckTest
   {
     [TestMethod]
-    public void IINDataTest()
+    public void Check_DirectAlgoritm_Test()
     {
-      IinBinCheckContext iinBinCheck = new IinBinCheckContext();
+      IinBinCheckContext context = new IinBinCheckContext();
 
-      iinBinCheck.SetInnBin = "830802300054";
+      context.SetInnBin = "830302300054";
 
-      Assert.IsNotNull(iinBinCheck.IINData);
+      context.Check();
 
+      Assert.IsTrue(context.IsCheked);
+    }
+
+    [TestMethod]
+    public void Check_InDirectAlgoritm_Test()
+    {
+      IinBinCheckContext context = new IinBinCheckContext();
+
+      context.SetInnBin = "830302300054";
+      context.ChekAlgoritmic = new IndirectChek();
+
+      context.Check();
+
+      Assert.IsFalse(context.IsCheked);
+    }
+
+    [TestMethod]
+    public void IsBinOrIin_Test()
+    {
+      IinBinCheckContext context = new IinBinCheckContext();
+
+      context.SetInnBin = "830302300054";
+
+      var data = context.IsBinOrIin;
+
+      Assert.IsTrue(context.IsBinOrIin == DocumentType.IIN);
+    }
+
+    [TestMethod]
+    public void IINData_Test()
+    {
+      IinBinCheckContext context = new IinBinCheckContext();
+
+      context.SetInnBin = "830302300054";
+
+      var  data = context.IINData;
+
+      Assert.IsNotNull(data);
     }
   }
 }
