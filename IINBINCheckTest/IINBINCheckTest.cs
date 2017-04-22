@@ -25,7 +25,7 @@ namespace IINBINCheckTest
       IinBinCheckContext context = new IinBinCheckContext();
 
       context.SetInnBin = "830302300054";
-      context.ChekAlgoritmic = new IndirectChek();
+      context.ChekAlgoritm = new IndirectChek();
 
       context.Check();
 

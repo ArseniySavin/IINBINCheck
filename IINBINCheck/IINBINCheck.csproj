@@ -8,6 +8,10 @@
     <Company />
     <Product />
     <Description>Checking IIN or BIN generated in Kazakhstan</Description>
+    <RepositoryUrl>https://github.com/ArseniySavin/IINBINCheck</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <PackageTags>IIN BIN Iin Bin</PackageTags>
+    <NeutralLanguage />
   </PropertyGroup>
 
 </Project>

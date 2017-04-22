@@ -63,7 +63,7 @@ namespace IINBINCheck
 
     public IinBinCheckContext()
     {
-      ChekAlgoritmic = new DirectChek();
+      ChekAlgoritm = new DirectChek();
     }
 
     public IinBinCheckContext(string value, ChekAlgoritm chekAlgoritm)
@@ -72,7 +72,7 @@ namespace IINBINCheck
         throw new ArgumentNullException("IIN/BIN and chekAlgoritm is NULL or empty");
 
       _iinbinArray = value.ToArray<char>();
-      ChekAlgoritmic = chekAlgoritm;
+      ChekAlgoritm = chekAlgoritm;
     }
 
     public IinBinCheckContext(string value, ChekAlgoritm chekAlgoritm, bool check)
@@ -81,7 +81,7 @@ namespace IINBINCheck
         throw new ArgumentNullException("IIN/BIN and chekAlgoritm is NULL or empty");
 
       _iinbinArray = value.ToArray<char>();
-      ChekAlgoritmic = chekAlgoritm;
+      ChekAlgoritm = chekAlgoritm;
 
       if(check)
         Check();
@@ -119,7 +119,7 @@ namespace IINBINCheck
     /// <summary>
     /// Instance accessor algoritm
     /// </summary>
-    public ChekAlgoritm ChekAlgoritmic
+    public ChekAlgoritm ChekAlgoritm
     {
       private get;
       set;
@@ -132,7 +132,7 @@ namespace IINBINCheck
     {
       get
       {
-        return ChekAlgoritmic.CurrentRank;
+        return ChekAlgoritm.CurrentRank;
       }
     }
 
@@ -154,7 +154,7 @@ namespace IINBINCheck
     {
 
       if(_iinbinArray.Length == 12)
-        _isCheked = ChekAlgoritmic.Checked(_iinbinArray);
+        _isCheked = ChekAlgoritm.Checked(_iinbinArray);
       else
         _isCheked = false;
     }
