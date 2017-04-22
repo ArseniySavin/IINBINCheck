@@ -18,7 +18,7 @@ If number was checked true. We will be getting true value.
 
   if(!contextIinChek.IsCheked)
   {
-    contextIinChek.ContextChekAlgoritm = new IndirectChek();
+    contextIinChek.ChekAlgoritm = new IndirectChek();
     contextIinChek.Check();
     Console.WriteLine("Indirect check: " + contextIinChek.IsCheked.ToString());
   }
@@ -30,7 +30,7 @@ If number was checked true. We will be getting true value.
   // Data of parsing result IIN
   IINBINData iinData = contextIinChek.IINData;
   // or if you want get data the BIN
-  IINBINData binData = contextIinChek.BINData
+  // IINBINData binData = contextIinChek.BINData
   
   Console.ReadKey();
 ```
