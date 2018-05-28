@@ -1,9 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.2</TargetFramework>
+    <!--<TargetFramework>netstandard2.0</TargetFramework>-->
+    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+    <!--<RuntimeIdentifiers>win7-x86;win7-x64</RuntimeIdentifiers>-->
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.1.1</Version>
+    <Version>1.0.2.0</Version>
     <Authors>Arseniy Savin</Authors>
     <Company />
     <Product />
@@ -12,10 +14,27 @@
     <RepositoryType>github</RepositoryType>
     <PackageTags>IIN BIN Iin Bin</PackageTags>
     <NeutralLanguage />
-    <PackageReleaseNotes>Low .NET Standart 1.4 to 1.2 and support framework 4.5.1</PackageReleaseNotes>
-    <AssemblyVersion>1.0.1.1</AssemblyVersion>
-    <FileVersion>1.0.1.1</FileVersion>
+    <PackageReleaseNotes>added the support framework .Net 4.5</PackageReleaseNotes>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
     <PackageProjectUrl>https://github.com/ArseniySavin/IINBINCheck</PackageProjectUrl>
   </PropertyGroup>
-
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+        <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+    </PropertyGroup>
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">		
+	    <Reference Include="mscorlib" />
+	    <Reference Include="System" />
+	    <Reference Include="System.Core" />
+	    <Reference Include="Microsoft.CSharp" />		
+	    <Reference Include="System.Data" />
+	    <Reference Include="System.Web" />
+	    <Reference Include="System.Drawing" />
+	    <Reference Include="System.Security" />
+	    <Reference Include="System.Xml" />
+	    <Reference Include="System.Configuration" />
+    </ItemGroup>
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'net45'">
+	    <DefineConstants>NET45;NETFULL</DefineConstants>
+    </PropertyGroup>
 </Project>
