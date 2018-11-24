@@ -7,11 +7,16 @@ namespace IinBinCheckTest
     [TestClass]
     public class IinBinCheckTest
     {
+        IinBinCheckContext context = null;
+
+        public IinBinCheckTest()
+        {
+            context = new IinBinCheckContext();
+        }
+
         [TestMethod]
         public void Check_DirectAlgoritm_Test()
         {
-            IinBinCheckContext context = new IinBinCheckContext();
-
             context.SetInnBin = "830302300054";
 
             context.Check();
@@ -22,8 +27,6 @@ namespace IinBinCheckTest
         [TestMethod]
         public void Check_InDirectAlgoritm_Test()
         {
-            IinBinCheckContext context = new IinBinCheckContext();
-
             context.SetInnBin = "830302300054";
             context.ChekAlgoritm = new IndirectCheck();
 
@@ -35,8 +38,6 @@ namespace IinBinCheckTest
         [TestMethod]
         public void IsBinOrIin_Inn_Test()
         {
-            IinBinCheckContext context = new IinBinCheckContext();
-
             context.SetInnBin = "830302300054";
 
             var data = context.IsBinOrIin;
@@ -47,8 +48,6 @@ namespace IinBinCheckTest
         [TestMethod]
         public void IsBinOrIin_Bin_Test()
         {
-            IinBinCheckContext context = new IinBinCheckContext();
-
             context.SetInnBin = "070940006509";
 
             var data = context.IsBinOrIin;
@@ -59,8 +58,6 @@ namespace IinBinCheckTest
         [TestMethod]
         public void IINData_Test()
         {
-            IinBinCheckContext context = new IinBinCheckContext();
-
             context.SetInnBin = "830302300054";
 
             var data = context.IinData;
@@ -100,6 +97,66 @@ namespace IinBinCheckTest
             context.Check();
 
             Assert.IsTrue(context.IsCheked);
+        }
+
+        [TestMethod]
+        public void CheckBirthDateUsing_20_Century_Test()
+        {
+            context.SetInnBin = "830302300054";
+
+            var data = context.IinData as IinModel;
+
+            Assert.AreEqual(data.BirthDate.ToString("yyyy-MM-dd"), "1983-03-02");
+        }
+
+        [TestMethod]
+        public void CheckBirthDateUsing_21_Century_Test()
+        {
+            context.SetInnBin = "071215651296";
+
+            var data = context.IinData as IinModel;
+
+            Assert.AreEqual(data.BirthDate.ToString("yyyy-MM-dd"), "2007-12-15");
+        }
+
+        [TestMethod]
+        public void Check_20_CenturyOfIinData()
+        {
+            context.SetInnBin = "830302300054";
+
+            var data = context.IinData as IinModel;
+
+            Assert.AreEqual(data.Century, "20");
+        }
+
+        [TestMethod]
+        public void Check_21_CenturyOfIinData()
+        {
+            context.SetInnBin = "071215651296";
+
+            var data = context.IinData as IinModel;
+
+            Assert.AreEqual(data.Century, "21");
+        }
+
+        [TestMethod]
+        public void CheckIinIsMale()
+        {
+            context.SetInnBin = "830302300054";
+
+            var data = context.IinData as IinModel;
+
+            Assert.AreEqual(data.Gender, GenderType.Male);
+        }
+
+        [TestMethod]
+        public void CheckIinIsFemale()
+        {
+            context.SetInnBin = "071215651296";
+
+            var data = context.IinData as IinModel;
+
+            Assert.AreEqual(data.Gender, GenderType.Female);
         }
     }
 }

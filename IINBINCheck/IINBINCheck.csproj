@@ -1,40 +1,40 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <!--<TargetFramework>netstandard2.0</TargetFramework>-->
-    <TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
-    <!--<RuntimeIdentifiers>win7-x86;win7-x64</RuntimeIdentifiers>-->
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.2.0</Version>
-    <Authors>Arseniy Savin</Authors>
-    <Company />
-    <Product />
-    <Description>Checking IIN or BIN generated in Kazakhstan</Description>
-    <RepositoryUrl>https://github.com/ArseniySavin/IINBINCheck</RepositoryUrl>
-    <RepositoryType>github</RepositoryType>
-    <PackageTags>IIN BIN Iin Bin</PackageTags>
-    <NeutralLanguage />
-    <PackageReleaseNotes>added the support framework .Net 4.5</PackageReleaseNotes>
-    <AssemblyVersion>1.0.2.0</AssemblyVersion>
-    <FileVersion>1.0.2.0</FileVersion>
-    <PackageProjectUrl>https://github.com/ArseniySavin/IINBINCheck</PackageProjectUrl>
+	<!--<TargetFramework>netstandard2.0</TargetFramework>-->
+	<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>
+	<!--<RuntimeIdentifiers>win7-x86;win7-x64</RuntimeIdentifiers>-->
+	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<Version>1.0.2.1</Version>
+	<Authors>Arseniy Savin</Authors>
+	<Company />
+	<Product />
+	<Description>Checking IIN or BIN generated in Kazakhstan</Description>
+	<RepositoryUrl>https://github.com/ArseniySavin/IINBINCheck</RepositoryUrl>
+	<RepositoryType>github</RepositoryType>
+	<PackageTags>IIN BIN Iin Bin</PackageTags>
+	<NeutralLanguage />
+	<PackageReleaseNotes>Added the support multi target framework. Refactor: Rename objects, add test for Bin and another updates.</PackageReleaseNotes>
+	<AssemblyVersion>1.0.2.1</AssemblyVersion>
+	<FileVersion>1.0.2.1</FileVersion>
+	<PackageProjectUrl>https://github.com/ArseniySavin/IINBINCheck</PackageProjectUrl>
   </PropertyGroup>
-    <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
-        <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
-    </PropertyGroup>
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">		
-	    <Reference Include="mscorlib" />
-	    <Reference Include="System" />
-	    <Reference Include="System.Core" />
-	    <Reference Include="Microsoft.CSharp" />		
-	    <Reference Include="System.Data" />
-	    <Reference Include="System.Web" />
-	    <Reference Include="System.Drawing" />
-	    <Reference Include="System.Security" />
-	    <Reference Include="System.Xml" />
-	    <Reference Include="System.Configuration" />
-    </ItemGroup>
-    <PropertyGroup Condition=" '$(TargetFramework)' == 'net45'">
-	    <DefineConstants>NET45;NETFULL</DefineConstants>
-    </PropertyGroup>
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
+		<DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">		
+		<Reference Include="mscorlib" />
+		<Reference Include="System" />
+		<Reference Include="System.Core" />
+		<Reference Include="Microsoft.CSharp" />		
+		<Reference Include="System.Data" />
+		<Reference Include="System.Web" />
+		<Reference Include="System.Drawing" />
+		<Reference Include="System.Security" />
+		<Reference Include="System.Xml" />
+		<Reference Include="System.Configuration" />
+	</ItemGroup>
+	<PropertyGroup Condition=" '$(TargetFramework)' == 'net45'">
+		<DefineConstants>NET45;NETFULL</DefineConstants>
+	</PropertyGroup>
 </Project>
